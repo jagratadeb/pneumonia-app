@@ -125,19 +125,12 @@ if __name__ == '__main__':
 
 
 
-
 @app.route('/predict', methods=['POST'])
-def predict():
-    """
-    API endpoint to receive an image (base64 or file upload),
-    run prediction, and return JSON response.
-    """
+def predict_api():
     if 'file' in request.files:
-        # Case 1: Image uploaded as a file
         file = request.files['file']
         image = Image.open(file.stream)
     else:
-        # Case 2: Image sent as base64 string in JSON
         data = request.get_json()
         image_data = data.get('image')
         image_bytes = base64.b64decode(image_data)
@@ -145,7 +138,3 @@ def predict():
 
     result = predict_image(image)
     return jsonify(result)
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
