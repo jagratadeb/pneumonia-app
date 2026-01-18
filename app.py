@@ -55,8 +55,8 @@ def predict_image(image):
 
 @app.route('/')
 def home():
-    """Homepage route"""
-    return "✅ Pneumonia Detection API is running! Use /predict to send images."
+    """Serve index.html from templates folder"""
+    return render_template('index.html')
 
 @app.route('/health', methods=['GET'])
 def health_check():
@@ -81,7 +81,6 @@ def predict_api():
             image = Image.open(io.BytesIO(image_bytes))
             result = predict_image(image)
             result['filename'] = file.filename
-            # Optional preview
             image.thumbnail((300, 300))
             buffered = io.BytesIO()
             image.save(buffered, format="PNG")
@@ -97,5 +96,5 @@ if __name__ == '__main__':
     print("Starting Pneumonia Detection Server...")
     print(f"Using device: {device}")
     print("Model loaded successfully!")
-    port = int(os.environ.get('PORT', 5000))  # Render requires dynamic port
+    port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
