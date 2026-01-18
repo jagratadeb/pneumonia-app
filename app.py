@@ -122,3 +122,30 @@ if __name__ == '__main__':
     print(f"Using device: {device}")
     print("Model loaded successfully!")
     app.run(debug=True, host='0.0.0.0', port=5000)
+
+
+
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    """
+    API endpoint to receive an image (base64 or file upload),
+    run prediction, and return JSON response.
+    """
+    if 'file' in request.files:
+        # Case 1: Image uploaded as a file
+        file = request.files['file']
+        image = Image.open(file.stream)
+    else:
+        # Case 2: Image sent as base64 string in JSON
+        data = request.get_json()
+        image_data = data.get('image')
+        image_bytes = base64.b64decode(image_data)
+        image = Image.open(io.BytesIO(image_bytes))
+
+    result = predict_image(image)
+    return jsonify(result)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
