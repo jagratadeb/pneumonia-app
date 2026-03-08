@@ -1,15 +1,16 @@
 # Pneumonia Detection AI - Frontend Application
 
-A beautiful, interactive web application for detecting viral pneumonia from chest X-ray images using deep learning.
+A professional, dark-themed web application for detecting viral pneumonia from chest X-ray images using deep learning. Built with a technical, no-frills interface optimized for clinical analysis.
 
 ## 🎯 Features
 
-- ✨ Clean and modern UI with drag-and-drop support
+- 🎯 Dark theme with technical, minimalist interface
 - 📤 Upload single or multiple X-ray images
 - 🤖 Real-time AI predictions using ResNet18
-- 📊 Confidence scores and probability breakdowns
-- 🎨 Visual results with color-coded predictions
+- 📊 Confidence scores and probability breakdowns with technical metrics
+- 🔍 Color-coded predictions (Red: Viral Pneumonia, Cyan: Normal)
 - 📱 Responsive design for all devices
+- ⚡ Clean, animation-free experience
 
 ## 🏗️ Architecture
 
@@ -85,9 +86,9 @@ Open `index.html` in your web browser:
    - Wait for AI processing (usually 1-2 seconds per image)
 
 3. **View Results**:
-   - Red cards indicate "Viral Pneumonia" detected
-   - Green cards indicate "Normal/Other"
-   - Check confidence scores and probability breakdowns
+   - Red borders indicate "Viral Pneumonia" detected
+   - Cyan borders indicate "Normal/Other"
+   - View detailed confidence scores and probability metrics in technical display
 
 4. **Clear and Repeat**:
    - Click "Clear All" to start over
@@ -231,9 +232,11 @@ Check if the server is running and model is loaded.
 ### Change Color Scheme
 
 Edit the CSS in `index.html`:
-- Primary gradient: `.header` and `.button` classes
-- Result cards: `.result-card.viral` and `.result-card.normal`
-- Confidence bars: `.confidence-fill.viral` and `.confidence-fill.normal`
+- Primary accent color (cyan): `#00adb5` - change in `.header h1`, `.button`, `.stat-value`, etc.
+- Dark background: `#0f1419` - change in `body`
+- Secondary panels: `#1a2332`, `#25354a` - change in `.card`, `.modal-content`
+- Red for viral predictions: `#dc2626` - change in `.result-card.viral`, `.confidence-fill.viral`
+- Borders and accents: `#2a3a4f` - change in border styling
 
 ### Modify UI Text
 
@@ -255,14 +258,15 @@ pneumonia-detection/
 
 ## 🚀 Future Enhancements
 
-- [ ] Add batch processing progress bar
-- [ ] Export results to PDF report
+- [ ] Add detailed batch processing metrics
+- [ ] Export results to PDF clinical report
 - [ ] Compare multiple X-rays side-by-side
-- [ ] Add image preprocessing options
+- [ ] Add image preprocessing options (brightness, contrast adjustment)
 - [ ] Support for DICOM format
 - [ ] Multi-class predictions (COVID, bacterial pneumonia, etc.)
-- [ ] Historical results tracking
-- [ ] Model explanation/visualization (Grad-CAM)
+- [ ] Historical results tracking and patient database
+- [ ] Model explanation/visualization (Grad-CAM heatmaps)
+- [ ] Dark/Light theme toggle
 
 ## 📄 License
 
